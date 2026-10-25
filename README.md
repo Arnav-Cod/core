@@ -4,7 +4,7 @@ A responsive public NGO website and interactive management workspace. Built with
 
 ## Open locally
 
-Serve the `dist` directory with a local HTTP server. The home URL opens the management dashboard; `#website` opens the public website.
+Serve the `dist` directory with a local HTTP server. The home URL opens the public website; `#dashboard` opens the management workspace.
 
 ## Included
 
@@ -31,6 +31,10 @@ A valid Google Analytics measurement ID can be added in Website CMS to load Goog
 
 Project and profile uploads are limited to 500 KB per file in this local demo. Download a JSON backup to retain edits before clearing browser storage.
 
+## Reference design
+
+The public website follows the supplied excellentcomputerclasses.in reference: the header stack, full-width Swiper slideshow, typography, icon set, quick links, program rows, community lists, documents, gallery, footer, mobile menus, spacing, and animation settings. Organization details remain Seva Setu’s, with placeholder contact information and clearly marked sample records. The management workspace uses the same fonts and palette.
+
 ## Assets
 
-Photographs from Unsplash are bundled locally. QRCode.js (MIT) and jsPDF (MIT) are bundled with their upstream notices. Fonts are loaded from Google Fonts with system fallbacks.
+Photographs from Unsplash are bundled locally. QRCode.js (MIT) and jsPDF (MIT) are bundled with their upstream notices. The reference fonts (Poppins, Bakbak One, and Teko), Font Awesome icons, and Swiper slider are bundled locally with system fallbacks.
