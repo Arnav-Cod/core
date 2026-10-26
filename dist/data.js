@@ -11,7 +11,7 @@ window.SEVA_SEED = {
     {id:'SSF-M-2026-008',name:'Vikram Rao',email:'vikram.rao@example.org',phone:'',role:'Member',joined:'2026-04-15',validity:'2027-04-14',status:'Blocked',department:'Community Outreach'}
   ],
   donors: [
-    {id:'SSF-D-001',name:'Aarav Patel',email:'aarav.patel@example.org',phone:''},
+    {id:'SSF-D-001',name:'Arnav Singla',email:'arnav.singla@example.org',phone:''},
     {id:'SSF-D-002',name:'Ishita Gupta',email:'ishita.gupta@example.org',phone:''},
     {id:'SSF-D-003',name:'Sanjay Malhotra',email:'sanjay.malhotra@example.org',phone:''},
     {id:'SSF-D-004',name:'Diya Kapoor',email:'diya.kapoor@example.org',phone:''},
@@ -19,13 +19,13 @@ window.SEVA_SEED = {
     {id:'SSF-D-006',name:'Kavya Reddy',email:'kavya.reddy@example.org',phone:''}
   ],
   donations: [
-    {id:'SSF-R-2026-008',name:'Aarav Patel',email:'aarav.patel@example.org',amount:15000,project:'Shiksha Setu',method:'UPI',date:'2026-10-24',status:'Completed',demo:true},
+    {id:'SSF-R-2026-008',name:'Arnav Singla',email:'arnav.singla@example.org',amount:15000,project:'Shiksha Setu',method:'UPI',date:'2026-10-24',status:'Completed',demo:true},
     {id:'SSF-R-2026-007',name:'Ishita Gupta',email:'ishita.gupta@example.org',amount:10000,project:'Swasthya Saathi',method:'Bank transfer',date:'2026-10-23',status:'Completed',demo:true},
     {id:'SSF-R-2026-006',name:'Sanjay Malhotra',email:'sanjay.malhotra@example.org',amount:25000,project:'Nayi Disha',method:'Bank transfer',date:'2026-10-22',status:'Completed',demo:true},
     {id:'SSF-R-2026-005',name:'Diya Kapoor',email:'diya.kapoor@example.org',amount:5000,project:'Hariyali',method:'UPI',date:'2026-10-21',status:'Pending',demo:true},
     {id:'SSF-R-2026-004',name:'Rahul Desai',email:'rahul.desai@example.org',amount:7500,project:'Shiksha Setu',method:'Cash',date:'2026-09-18',status:'Completed',demo:true},
     {id:'SSF-R-2026-003',name:'Kavya Reddy',email:'kavya.reddy@example.org',amount:12000,project:'Swasthya Saathi',method:'UPI',date:'2026-08-12',status:'Completed',demo:true},
-    {id:'SSF-R-2026-002',name:'Aarav Patel',email:'aarav.patel@example.org',amount:20000,project:'Nayi Disha',method:'Bank transfer',date:'2026-07-14',status:'Completed',demo:true},
+    {id:'SSF-R-2026-002',name:'Arnav Singla',email:'arnav.singla@example.org',amount:20000,project:'Nayi Disha',method:'Bank transfer',date:'2026-07-14',status:'Completed',demo:true},
     {id:'SSF-R-2026-001',name:'Ishita Gupta',email:'ishita.gupta@example.org',amount:8000,project:'Hariyali',method:'UPI',date:'2026-06-09',status:'Completed',demo:true}
   ],
   volunteers: [
@@ -101,4 +101,24 @@ window.SEVA_SEED = {
     vision:'A compassionate and inclusive society where every person has the opportunity to build a better future.',
     email:'',phone:'',whatsapp:'',address:'',mapUrl:'',youtube:'',facebook:'',instagram:'',analyticsId:'',membershipFee:1000,receiptPrefix:'SSF',fiscalYear:'2026–27'
   }
+};
+
+// Apply this sample-profile update to previously saved browser workspaces too.
+window.applySevaSeedUpdates = function (workspace) {
+  const version = 'highest-donor-arnav-singla-v1';
+  const applied = Array.isArray(workspace.seedUpdates) ? workspace.seedUpdates : [];
+  if (applied.includes(version)) return false;
+  const donor = workspace.donors.find(record => record.id === 'SSF-D-001');
+  if (donor && donor.name === 'Aarav Patel' && donor.email === 'aarav.patel@example.org') {
+    donor.name = 'Arnav Singla';
+    donor.email = 'arnav.singla@example.org';
+    for (const donation of workspace.donations) {
+      if (donation.email === 'aarav.patel@example.org' && donation.demo === true) {
+        donation.name = donor.name;
+        donation.email = donor.email;
+      }
+    }
+  }
+  workspace.seedUpdates = [...applied, version];
+  return true;
 };
