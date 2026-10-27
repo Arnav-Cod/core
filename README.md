@@ -19,6 +19,19 @@ Serve the `dist` directory with a local HTTP server. The home URL opens the publ
 - QR-enabled certificates, appointment drafts and ID cards; direct PDF downloads and print previews.
 - Permission configuration preview, local activity history and JSON backup/restore.
 
+## Community engagement features
+
+- **See Your Impact** (`#impact`): project funding and spending, published milestones, reviewed field updates, photos with captions, latest reported outcomes, and project-specific donation pledges. Update outcomes are totals as of the reporting date, not summed across posts. Project funds use existing project totals including opening balances; pending expenses are excluded from spending detail.
+- **Volunteer matching** (`#opportunities`): filters for location, cause, availability and skills; opportunity-specific applications; duplicate prevention; coordinator review through orientation, assignment and completion. Verified service is linked to the existing volunteer and attendance records and prevents duplicate attendance for a person on a date.
+- **Corporate partnerships** (`#partnerships`): programme funding and employee volunteering options, downloadable sample PDF proposals, enquiry capture, stage tracking, coordinator ownership, follow-up dates and reporting deadlines. Enquiry budgets do not count as received donations.
+- Manage these in **Impact updates**, **Volunteer opportunities**, and **Corporate partnerships** in the workspace. New records are included in JSON backup/restore. Existing saved workspaces receive the sample additions once without replacing their existing records.
+
+These features use the same browser-local demo storage as the rest of the site. Applications and enquiries do not notify the foundation; publication of a local update is visible only in that browser. Shared submissions and automated follow-ups require production services.
+
+## Verification
+
+Run `node tests/growth.test.cjs` for migration, filters, volunteer lifecycle/capacity, duplicate service prevention, publication review, partnership accounting isolation, storage rollback, and rendering checks.
+
 ## Demo and launch configuration
 
 Records persist in the current browser's local storage. Sample records, stock photographs and document previews are clearly marked. There is no shared server database or production member authentication. Permission settings are a configuration preview rather than enforced security. QR verification reads the same browser's local records and is not a cross-device identity service.
